@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -14,13 +18,12 @@ a {
 * {
   box-sizing: border-box;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.field-container{
+  @apply flex flex-col text-start gap-2 w-full
+}
+.label-form{
+  @apply text-slate-800 font-semibold  w-full
+}
+.input-form{
+  @apply rounded-full border-2 border-slate-800 py-2 px-3 text-base text-slate-800 w-full
 }
