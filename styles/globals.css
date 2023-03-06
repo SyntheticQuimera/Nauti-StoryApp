@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
+::-webkit-scrollbar {
+  width: 8px;
+  
+}
+::-webkit-scrollbar-thumb {
+
+  background-color: rgb(100 116 139);
+
+}
+::-webkit-scrollbar-track {
+
+  background-color: rgb(226 232 240);
+}
+
 html,
 body {
   padding: 0;
@@ -21,9 +36,19 @@ a {
 .field-container{
   @apply flex flex-col text-start gap-2 w-full
 }
+
 .label-form{
   @apply text-slate-800 font-semibold  w-full
 }
 .input-form{
-  @apply rounded-full border-2 border-slate-800 py-2 px-3 text-base text-slate-800 w-full
+  @apply rounded-full text-lg font-semibold text-slate-800 border-2 placeholder:text-slate-400 border-slate-800 py-2 px-3  w-full
 }
+.textarea-form{
+  @apply rounded-2xl  text-lg font-semibold text-slate-800 border-2 placeholder:text-slate-400 border-slate-800 py-2 px-3  w-full
+}
+.button-form{
+  @apply flex cursor-pointer rounded-full bg-yellow-200 px-6 py-3 text-lg font-bold text-slate-800
+}
+
+
+

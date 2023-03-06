@@ -12,6 +12,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>

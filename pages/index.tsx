@@ -12,14 +12,14 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <main className='flex flex-col'>
+      <main className='flex flex-col bg-[#06283d] px-4 pb-32 md:px-16'>
         <UploadForm />
       </main>
-      {/* <footer className={styles.footer}>
+      <footer className='flex flex-1 items-center justify-center border bg-white py-8'>
         <span>
-          <img src='/NautiIso.png' alt='Nauti Logo' className='w-14' />
+          <img src='/nautiLogo.svg' alt='Nauti Logo' className='w-28' />
         </span>
-      </footer> */}
+      </footer>
     </div>
   );
 };
