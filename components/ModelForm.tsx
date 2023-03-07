@@ -256,7 +256,9 @@ const ModelForm = () => {
                   </div>
                 ))}
               </div>
-              <button className='button-form w-full items-center justify-center'>
+              <button
+                type='submit'
+                className='button-form w-full items-center justify-center'>
                 {!currentStory ? (
                   <p>Create a story</p>
                 ) : (

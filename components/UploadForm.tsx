@@ -48,13 +48,14 @@ const UploadForm = () => {
     dispatch(updateStory(value));
   };
 
-  const handleDownloadImage = () => {
-    const link = document.createElement("a");
-    link.download = "imagen.png";
-    link.href = imageSrc;
-    link.target = "_blank";
-    link.click();
-  };
+  // const handleDownloadImage = () => {
+  //   const link = document.createElement("a");
+  //   link.download = "imagen.png";
+  //   link.href = imageSrc;
+  //   link.target = "_blank";
+  //   link.click();
+  // };
+  
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(currentStory);
   };

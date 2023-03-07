@@ -6,7 +6,7 @@ type Data = {
   content: string | undefined
 }
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
