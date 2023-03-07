@@ -55,7 +55,7 @@ const UploadForm = () => {
   //   link.target = "_blank";
   //   link.click();
   // };
-  
+
   const handleCopyToClipboard = () => {
     navigator.clipboard.writeText(currentStory);
   };
@@ -86,10 +86,19 @@ const UploadForm = () => {
                 onSubmit={handleOnSubmit}
                 className='space-y-8'>
                 {!imageSrc && (
-                  <label className='mt-[50%] flex min-w-max cursor-pointer rounded-full bg-yellow-200 px-8 py-4 text-xl font-bold text-slate-800'>
-                    <p>Add Image</p>
-                    <input className='h-0 w-0' type='file' name='file' />
-                  </label>
+                  <div className='flex flex-col items-center justify-center gap-6'>
+                    <p className='text-4xl font-bold text-slate-800'>
+                      Let&#39;s create a story
+                    </p>
+                    <p className='text-lg font-semibold text-slate-600'>
+                      Nauti work more effectively with pictures of places such
+                      as streets, parks, and landscapes. max size 4mb.
+                    </p>
+                    <label className='flex w-fit cursor-pointer rounded-full bg-yellow-200 px-8 py-4 text-xl font-bold text-slate-800'>
+                      <p>Add Image</p>
+                      <input className='h-0 w-0' type='file' name='file' />
+                    </label>
+                  </div>
                 )}
                 {imageSrc && (
                   <>
@@ -119,6 +128,10 @@ const UploadForm = () => {
             )}
             {currentStep == 2 && (
               <div className='flex w-full flex-col items-center justify-center space-y-8'>
+                <p className='text-lg font-bold text-slate-800'>
+                  Now, you can either add specifications to your story or let
+                  Nauti handle the rest.
+                </p>
                 <div className='relative flex w-full'>
                   <div
                     onClick={() => {
@@ -138,41 +151,45 @@ const UploadForm = () => {
               </div>
             )}
             {currentStep == 3 && (
-              <div>
-                <div className='flex w-full flex-col items-end justify-center space-y-8'>
-                  <div className='relative flex w-full'>
-                    <div
-                      onClick={() => {
-                        setImageSrc("");
-                        dispatch(restore());
-                        dispatch(restoreStory());
-                      }}
-                      className='absolute right-4 bottom-4 cursor-pointer rounded-full bg-red-600 p-2 drop-shadow-lg'>
-                      <FiTrash2 className='text-xl text-white' />
-                    </div>
-                    <img
-                      className='w-full rounded-2xl object-contain'
-                      src={imageSrc}
-                    />
+              <div className='flex w-full flex-col items-end justify-center space-y-8'>
+                <p className='text-lg font-bold text-slate-800'>
+                  You can edit the content and improve it according to your
+                  preferences.
+                </p>
+                <div className='relative flex w-full'>
+                  <div
+                    onClick={() => {
+                      setImageSrc("");
+                      dispatch(restore());
+                      dispatch(restoreStory());
+                    }}
+                    className='absolute right-4 bottom-4 cursor-pointer rounded-full bg-red-600 p-2 drop-shadow-lg'>
+                    <FiTrash2 className='text-xl text-white' />
                   </div>
+                  <img
+                    className='w-full rounded-2xl object-contain'
+                    src={imageSrc}
+                  />
+                </div>
+                <div className='flex w-full overflow-hidden rounded-2xl border-2 border-slate-800'>
                   <textarea
                     className='textarea-form'
                     rows={Math.ceil(currentStory.length / 50)}
                     value={currentStory}
                     onChange={handleOnChangeStory}
                   />
-                  <div className='flex w-full items-center justify-between'>
-                    <button
-                      onClick={() => dispatch(decrement())}
-                      className=' button-form w-fit'>
-                      <p>Back</p>
-                    </button>
-                    <button
-                      onClick={() => dispatch(increment())}
-                      className=' button-form w-fit'>
-                      <p>Next</p>
-                    </button>
-                  </div>
+                </div>
+                <div className='flex w-full items-center justify-between'>
+                  <button
+                    onClick={() => dispatch(decrement())}
+                    className=' button-form w-fit'>
+                    <p>Back</p>
+                  </button>
+                  <button
+                    onClick={() => dispatch(increment())}
+                    className=' button-form w-fit'>
+                    <p>Next</p>
+                  </button>
                 </div>
               </div>
             )}

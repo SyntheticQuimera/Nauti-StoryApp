@@ -44,7 +44,7 @@ a {
   @apply rounded-full text-lg font-semibold text-slate-800 border-2 placeholder:text-slate-400 border-slate-800 py-2 px-3  w-full
 }
 .textarea-form{
-  @apply rounded-2xl  text-lg font-semibold text-slate-800 border-2 placeholder:text-slate-400 border-slate-800 py-2 px-3  w-full
+  @apply text-lg font-semibold text-slate-800 w-full outline-none p-3
 }
 .button-form{
   @apply flex cursor-pointer rounded-full bg-yellow-200 px-6 py-3 text-lg font-bold text-slate-800
