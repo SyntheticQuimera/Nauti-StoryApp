@@ -19,7 +19,7 @@ export default async function handler(
 ) {
   const { image } = JSON.parse(req.body)
   const results = await cloudinary.uploader.upload(image, {
-    detection: "coco_v1",
+    categorization: "google_tagging",
     auto_tagging: .6
   })
   res.status(200).json(results)
