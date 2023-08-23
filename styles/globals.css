@@ -9,46 +9,13 @@
 }
 ::-webkit-scrollbar-thumb {
 
-  background-color: rgb(100 116 139);
+  background-color: #291334;
+  border-radius: 8px;
 
 }
 ::-webkit-scrollbar-track {
 
-  background-color: rgb(226 232 240);
+  background-color: #faf7f5;
 }
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-.field-container{
-  @apply flex flex-col text-start gap-2 w-full
-}
-
-.label-form{
-  @apply text-slate-800 font-semibold  w-full
-}
-.input-form{
-  @apply rounded-full text-lg font-semibold text-slate-800 border-2 placeholder:text-slate-400 border-slate-800 py-2 px-3  w-full
-}
-.textarea-form{
-  @apply text-lg font-semibold text-slate-800 w-full outline-none p-3
-}
-.button-form{
-  @apply flex cursor-pointer rounded-full bg-yellow-200 px-6 py-3 text-lg font-bold text-slate-800
-}
-
 
 

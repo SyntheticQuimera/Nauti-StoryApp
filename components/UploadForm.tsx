@@ -60,66 +60,65 @@ const UploadForm = () => {
     navigator.clipboard.writeText(currentStory);
   };
   return (
-    <div className='relative flex min-h-screen w-full flex-col items-center justify-center gap-16 pt-16 text-center'>
-      <div className='relative flex min-h-[400px] w-full flex-col items-center gap-8 rounded-3xl bg-white p-8 drop-shadow-2xl md:w-[60%]'>
-        <div className='flex w-full justify-evenly self-start'>
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center gap-16 pt-16 text-center">
+      <div className="relative flex min-h-[400px] w-full flex-col items-center gap-8 md:w-[60%]">
+        <ul className="steps w-full">
           {steps.map((step) => (
-            <div
+            <li
               key={step.number}
-              className={`flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold ${
-                currentStep >= step.number
-                  ? "bg-yellow-200 text-slate-800"
-                  : "bg-slate-200 text-slate-500"
-              }`}>
-              {step.number}
-            </div>
+              className={`step ${
+                currentStep >= step.number ? "step-primary" : ""
+              }`}
+            ></li>
           ))}
-        </div>
+        </ul>
         {isLoading ? (
-          <SyncLoader color='rgb(30, 41, 59)' className='mt-[15%]' />
+          <SyncLoader color="#65c3c8" className="mt-[15%]" />
         ) : (
           <>
             {currentStep == 1 && (
               <form
                 onChange={handleOnChange}
-                method='post'
+                method="post"
                 onSubmit={handleOnSubmit}
-                className='space-y-8'>
+                className="space-y-8"
+              >
                 {!imageSrc && (
-                  <div className='flex flex-col items-center justify-center gap-6'>
-                    <p className='text-4xl font-bold text-slate-800'>
+                  <div className="flex flex-col items-center justify-center gap-6">
+                    <p className="text-4xl font-bold">
                       Let&#39;s create a story
                     </p>
-                    <p className='text-lg font-semibold text-slate-600'>
+                    <p className="text-lg font-semibold">
                       Nauti work more effectively with pictures of places such
                       as streets, parks, and landscapes. max size 4mb.
                     </p>
-                    <label className='flex w-fit cursor-pointer rounded-full bg-yellow-200 px-8 py-4 text-xl font-bold text-slate-800'>
+                    <label className="btn-secondary rounded-box btn-lg btn">
                       <p>Add Image</p>
-                      <input className='h-0 w-0' type='file' name='file' />
+                      <input className="h-0 w-0" type="file" name="file" />
                     </label>
                   </div>
                 )}
                 {imageSrc && (
                   <>
-                    <div className='relative'>
+                    <div className="relative">
                       <div
                         onClick={() => {
                           setImageSrc("");
                           dispatch(restore());
                           dispatch(restoreStory());
                         }}
-                        className='absolute right-4 bottom-4 cursor-pointer rounded-full bg-red-600 p-2 drop-shadow-lg'>
-                        <FiTrash2 className='text-xl text-white' />
+                        className="btn-error btn-circle btn absolute right-4 bottom-4"
+                      >
+                        <FiTrash2 className="text-xl" />
                       </div>
                       <img
-                        className='w-full rounded-2xl object-contain'
+                        className="rounded-box w-full object-contain"
                         src={imageSrc}
                       />
                     </div>
-                    <div className='flex w-full items-end justify-end'>
-                      <button className=' button-form w-fit'>
-                        <p>Next</p>
+                    <div className="flex w-full items-end justify-end">
+                      <button className="btn-secondary rounded-box btn">
+                        Next
                       </button>
                     </div>
                   </>
@@ -127,23 +126,24 @@ const UploadForm = () => {
               </form>
             )}
             {currentStep == 2 && (
-              <div className='flex w-full flex-col items-center justify-center space-y-8'>
-                <p className='text-lg font-bold text-slate-800'>
+              <div className="flex w-full flex-col items-center justify-center space-y-8">
+                <p className="text-lg font-bold">
                   Now, you can either add specifications to your story or let
                   Nauti handle the rest.
                 </p>
-                <div className='relative flex w-full'>
+                <div className="relative flex w-full">
                   <div
                     onClick={() => {
                       setImageSrc("");
                       dispatch(restore());
                       dispatch(restoreStory());
                     }}
-                    className='absolute right-4 bottom-4 cursor-pointer rounded-full bg-red-600 p-2 drop-shadow-lg'>
-                    <FiTrash2 className='text-xl text-white' />
+                    className="btn-error btn-circle btn absolute right-4 bottom-4"
+                  >
+                    <FiTrash2 className="text-xl" />
                   </div>
                   <img
-                    className='w-full rounded-2xl object-contain'
+                    className="rounded-box w-full object-contain"
                     src={imageSrc}
                   />
                 </div>
@@ -151,67 +151,70 @@ const UploadForm = () => {
               </div>
             )}
             {currentStep == 3 && (
-              <div className='flex w-full flex-col items-end justify-center space-y-8'>
-                <p className='text-lg font-bold text-slate-800'>
+              <div className="flex w-full flex-col items-end justify-center space-y-8">
+                <p className="text-lg font-bold text-slate-800">
                   You can edit the content and improve it according to your
                   preferences.
                 </p>
-                <div className='relative flex w-full'>
+                <div className="relative flex w-full">
                   <div
                     onClick={() => {
                       setImageSrc("");
                       dispatch(restore());
                       dispatch(restoreStory());
                     }}
-                    className='absolute right-4 bottom-4 cursor-pointer rounded-full bg-red-600 p-2 drop-shadow-lg'>
-                    <FiTrash2 className='text-xl text-white' />
+                    className="btn-error btn-circle btn absolute right-4 bottom-4"
+                  >
+                    <FiTrash2 className="text-xl" />
                   </div>
                   <img
-                    className='w-full rounded-2xl object-contain'
+                    className="rounded-box w-full object-contain"
                     src={imageSrc}
                   />
                 </div>
-                <div className='flex w-full overflow-hidden rounded-2xl border-2 border-slate-800'>
+                <div className="flex w-full overflow-hidden">
                   <textarea
-                    className='textarea-form'
-                    rows={Math.ceil(currentStory.length / 50)}
+                    className="textarea-bordered textarea rounded-box w-full"
+                    rows={Math.ceil(currentStory.length / 100)}
                     value={currentStory}
                     onChange={handleOnChangeStory}
                   />
                 </div>
-                <div className='flex w-full items-center justify-between'>
+                <div className="flex w-full items-center justify-between">
                   <button
                     onClick={() => dispatch(decrement())}
-                    className=' button-form w-fit'>
+                    className="btn-outline rounded-box btn"
+                  >
                     <p>Back</p>
                   </button>
                   <button
                     onClick={() => dispatch(increment())}
-                    className=' button-form w-fit'>
+                    className="btn-secondary rounded-box btn"
+                  >
                     <p>Next</p>
                   </button>
                 </div>
               </div>
             )}
             {currentStep == 4 && (
-              <div className='flex w-full flex-col items-end justify-center space-y-8'>
-                <div className='relative flex w-full'>
+              <div className="flex w-full flex-col items-end justify-center space-y-8">
+                <div className="relative flex w-full">
                   <img
-                    className='w-full rounded-2xl object-contain'
+                    className="w-full rounded-2xl object-contain"
                     src={imageSrc}
                   />
                 </div>
-                <div className='flex flex-col items-end gap-8 '>
-                  <div className='relative flex w-full px-2 pt-8 pb-12'>
-                    <RiDoubleQuotesL className='absolute top-0 -left-2 text-4xl text-slate-800' />
-                    <p className='inline-block  whitespace-pre-line text-justify indent-8 text-base font-semibold leading-relaxed text-slate-800'>
+                <div className="flex flex-col items-end gap-8 ">
+                  <div className="relative flex w-full px-2 pt-8 pb-12">
+                    <RiDoubleQuotesL className="absolute top-0 -left-2 text-4xl text-neutral" />
+                    <p className="inline-block  whitespace-pre-line text-justify indent-8 text-base font-semibold leading-relaxed">
                       {currentStory}
                     </p>
-                    <RiDoubleQuotesR className='absolute bottom-0 -right-2 text-4xl text-slate-800' />
+                    <RiDoubleQuotesR className="absolute bottom-0 -right-2 text-4xl text-neutral" />
                   </div>
                 </div>
 
-                <div className='flex w-full items-center justify-between'>
+                <div className="flex w-full items-center justify-between">
                   {/* <button
                     onClick={handleDownloadImage}
                     className=' button-form w-fit'>
@@ -219,13 +222,15 @@ const UploadForm = () => {
                   </button> */}
                   <button
                     onClick={() => dispatch(decrement())}
-                    className=' button-form w-fit'>
+                    className="btn-outline rounded-box btn"
+                  >
                     <p>Back</p>
                   </button>
                   <button
                     onClick={handleCopyToClipboard}
-                    className=' button-form w-fit'>
-                    <p>Copy to clipboard</p>
+                    className="btn-secondary rounded-box btn"
+                  >
+                    Copy to clipboard
                   </button>
                 </div>
               </div>
